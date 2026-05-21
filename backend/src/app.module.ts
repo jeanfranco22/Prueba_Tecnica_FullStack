@@ -17,8 +17,11 @@ import { TasksModule } from './tasks/tasks.module';
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
         url: configService.get<string>('DATABASE_URL'),
+
         autoLoadEntities: true,
+
         synchronize: true,
+
         ssl: {
           rejectUnauthorized: false,
         },
