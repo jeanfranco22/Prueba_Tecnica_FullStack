@@ -1,6 +1,8 @@
 # AI Usage Report
 
-Durante el desarrollo de este proyecto utilicé herramientas de inteligencia artificial como apoyo para acelerar ciertas tareas repetitivas, mejorar estructura del código y validar ideas de implementación.
+Durante el desarrollo de este proyecto se utilizaron herramientas de inteligencia artificial como apoyo para acelerar tareas repetitivas, validar enfoques técnicos y optimizar parte del flujo de desarrollo.
+
+Las herramientas de IA fueron utilizadas como soporte técnico y productividad, pero todas las decisiones importantes de arquitectura, organización y lógica fueron revisadas, ajustadas y validadas manualmente.
 
 ---
 
@@ -8,23 +10,28 @@ Durante el desarrollo de este proyecto utilicé herramientas de inteligencia art
 
 ## ChatGPT
 
-Usado para:
+Utilizado para:
 
 - Generación inicial de estructuras CRUD
 - Resolución de errores específicos
-- Ayuda con configuración de NestJS y TypeORM
+- Configuración de NestJS + TypeORM
 - Apoyo en validaciones con DTOs
 - Mejora de estructura de componentes React
-- Generación de documentación (`README.md`)
 - Optimización de organización del proyecto
+- Generación y mejora de documentación técnica
+- Debugging durante integración frontend/backend
+- Resolución de problemas de renderizado e hidratación en Next.js
+
+---
 
 ## GitHub Copilot
 
-Usado para:
+Utilizado para:
 
 - Autocompletado de funciones
 - Sugerencias rápidas de tipado
 - Generación de snippets repetitivos
+- Agilizar escritura de componentes y servicios
 
 ---
 
@@ -32,27 +39,48 @@ Usado para:
 
 ## Prompt 1
 
+```txt
 Ayúdame a crear una estructura backend en NestJS para autenticación JWT con PostgreSQL y TypeORM.
+```
+
+---
 
 ## Prompt 2
 
+```txt
 Cómo estructurar un CRUD de tareas protegido por JWT donde cada usuario solo pueda acceder a sus propias tareas.
+```
+
+---
 
 ## Prompt 3
 
+```txt
 Ayúdame a crear componentes reutilizables en React y Next.js usando TypeScript y TailwindCSS.
+```
 
-## Cosas que la IA genero mal y tuve que corregir
+---
 
-- la IA generó lógica de frontend con manejo de estados innecesariamente complejo o con estructuras poco reutilizables.
-- También generó algunas configuraciones incompatibles entre versiones de Next.js y ciertas prácticas de renderizado.
+# Aspectos que la IA generó incorrectamente y fueron corregidos manualmente
 
-## Que decidi no delegar a la IA
+- Algunas estructuras de manejo de estado en frontend resultaban innecesariamente complejas.
+- Se generaron configuraciones incompatibles entre ciertas versiones de Next.js y prácticas de renderizado.
+- Parte del código sugerido requería refactorización para mejorar reutilización y claridad.
+- Algunos flujos de autenticación necesitaban ajustes para evitar errores de hidratación y renderizado en cliente.
+- Algunas sugerencias iniciales requerían adaptación manual para mantener una estructura más limpia y consistente con el proyecto.
 
-- La arquitectura general del proyecto, organización de carpetas y flujo de autenticación fueron decisiones tomadas manualmente.
+---
 
-Razón:
-Considero importante entender completamente la estructura y lógica principal del proyecto para poder mantenerlo, debuggearlo y escalarlo posteriormente sin depender completamente de herramientas de IA.
-Además, algunas decisiones de experiencia de usuario y separación de responsabilidades fueron más fáciles de ajustar manualmente según el contexto del reto técnico.
+# Decisiones que no fueron delegadas a la IA
 
-- Generacion y orden de componentes para facilitarme la forma de organizar y entender el esquema
+Las siguientes decisiones fueron tomadas manualmente:
+
+- Arquitectura general del proyecto
+- Organización de carpetas
+- Flujo de autenticación
+- Separación de responsabilidades
+- Organización y reutilización de componentes
+- Estructura visual y experiencia de usuario
+- Integración frontend/backend
+- Flujo CRUD completo
+- Decisiones de estructura responsive

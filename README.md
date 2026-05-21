@@ -1,7 +1,8 @@
 # Task Manager App
 
-Aplicación Full Stack para gestión de tareas con autenticación JWT.  
-Cada usuario puede crear, editar, eliminar y visualizar únicamente sus propias tareas.
+Aplicación Full Stack para gestión de tareas con autenticación JWT.
+
+Cada usuario puede registrarse, iniciar sesión y administrar únicamente sus propias tareas mediante una interfaz moderna y responsive.
 
 ---
 
@@ -31,8 +32,9 @@ Cada usuario puede crear, editar, eliminar y visualizar únicamente sus propias 
 - Registro de usuarios
 - Login con JWT
 - Protección de rutas privadas
+- Persistencia de sesión mediante token
 
-## Tasks
+## Gestión de tareas
 
 - Crear tareas
 - Editar tareas
@@ -40,6 +42,7 @@ Cada usuario puede crear, editar, eliminar y visualizar únicamente sus propias 
 - Cambiar estado (`pending` / `done`)
 - Filtrado por estado
 - Paginación
+- Visualización exclusiva de tareas por usuario autenticado
 
 ---
 
@@ -53,17 +56,13 @@ project-root/
 └── frontend/
 ```
 
-# Instalación y ejecución del proyecto
-
-A continuación se describen los pasos necesarios para ejecutar el proyecto localmente.
-
 ---
 
 # Requisitos previos
 
-Antes de comenzar, asegúrate de tener instalado:
+Antes de ejecutar el proyecto es necesario tener instalado:
 
-- Node.js (v18 o superior recomendado)
+- Node.js v18 o superior
 - npm
 - PostgreSQL
 
@@ -71,16 +70,127 @@ Antes de comenzar, asegúrate de tener instalado:
 
 # 1. Clonar repositorio
 
-https://github.com/jeanfranco22/Prueba_Tecnica_FullStack.git
+```bash
+git clone https://github.com/jeanfranco22/Prueba_Tecnica_FullStack.git
+```
 
-# PostgreSQL Database URL
+---
 
+# 2. Instalar dependencias
+
+## Backend
+
+```bash
+cd backend
+npm install
+```
+
+## Frontend
+
+```bash
+cd frontend
+npm install
+```
+
+---
+
+# 3. Variables de entorno
+
+## Backend
+
+Crear archivo:
+
+```bash
+backend/.env
+```
+
+Contenido:
+
+```env
 DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/DATABASE
-
-# JWT Secret Key
 
 JWT_SECRET=your_secret_key
 
-# Backend Port
-
 PORT=3001
+```
+
+---
+
+## Frontend
+
+Crear archivo:
+
+```bash
+frontend/.env.local
+```
+
+Contenido:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3001/api
+```
+
+---
+
+# 4. Ejecutar backend
+
+Desde la carpeta backend ejecutar:
+
+```bash
+npm run start:dev
+```
+
+Servidor backend disponible en:
+
+```bash
+http://localhost:3001
+```
+
+---
+
+# 5. Ejecutar frontend
+
+Desde la carpeta frontend ejecutar:
+
+```bash
+npm run dev
+```
+
+Aplicación frontend disponible en:
+
+```bash
+http://localhost:3000
+```
+
+---
+
+# Endpoints principales
+
+## Auth
+
+```http
+POST /api/auth/register
+POST /api/auth/login
+```
+
+## Tasks
+
+```http
+GET    /api/tasks
+POST   /api/tasks
+PATCH  /api/tasks/:id
+DELETE /api/tasks/:id
+```
+
+---
+
+# Características técnicas
+
+- Arquitectura modular en NestJS
+- DTO validations con `class-validator`
+- JWT Guards para protección de rutas
+- Relación Usuario → Tasks
+- Componentes reutilizables
+- Diseño responsive
+- Manejo de estado en frontend
+- Separación de responsabilidades entre capas
